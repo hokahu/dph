@@ -134,7 +134,7 @@ class Menu(QtWidgets.QWidget):
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
     #меню, вопросы, советы
-    ui = ["./untitled2.ui", "./untitled.ui", "./untitled1.ui"]
+    ui = ["./joker1.ui", "./untitled.ui", "./untitled1.ui"]
     prog = Menu(ui,"./database_test.xlsx")
     prog.show()
     sys.exit(app.exec())

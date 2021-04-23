@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>779</width>
+    <width>997</width>
     <height>527</height>
    </rect>
   </property>
@@ -41,13 +41,13 @@
             <font>
              <family>Times New Roman</family>
              <pointsize>20</pointsize>
-             <weight>75</weight>
+             <weight>50</weight>
              <italic>true</italic>
-             <bold>true</bold>
+             <bold>false</bold>
             </font>
            </property>
            <property name="styleSheet">
-            <string notr="true">QPushButton#sovieti {
+            <string notr="true">QPushButton {
 	background-color: #1ab3ec;
 	color: white;
 	border-radius: 20;
@@ -90,7 +90,7 @@ QPushButton#sovieti:pressed {
             </font>
            </property>
            <property name="styleSheet">
-            <string notr="true">QPushButton#test {
+            <string notr="true">QPushButton {
 	background-color: #1ab3ec;
 	color: white;
 	border-radius: 20;
