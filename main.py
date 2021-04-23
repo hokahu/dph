@@ -55,7 +55,7 @@ class Qestions(QtWidgets.QWidget):
         for find_result in self.result:
             if find_result[0] <= self.progression <= find_result[1]:
                 self.iresult = self.result[find_result]
-                print(self.iresult)
+                self.qstExit()
                 break
 
     # проверка на есть ли еше вопросы
@@ -69,8 +69,6 @@ class Qestions(QtWidgets.QWidget):
 
     def qstExit(self):
         self.mViget.setSelf()
-        self.mViget.result = self.iresult
-        self.hide()
 
 
 class Advice(QtWidgets.QWidget):
@@ -93,7 +91,7 @@ class Advice(QtWidgets.QWidget):
 
     def adExit(self):
         self.mViget.setSelf()
-        self.hide()
+
 
 
 class Menu(QtWidgets.QWidget):
@@ -103,33 +101,35 @@ class Menu(QtWidgets.QWidget):
         uic.loadUi(self.ui[0], self)
         self.basa = basa
         self.widget = QtWidgets.QMainWindow()
-        self.centralwidget = self
-        self.widget.setCentralWidget(self.centralWidget)
+        self.widget.show()
+        self.widget.setCentralWidget(self)
         self.result = "вы ещё не прошли тест"
 
-        self.sbtn.clicked.connect(lambda: self.soveti())
-        self.qbtn.clicked.connect(lambda: self.voprosi())
+        self.sbtn.clicked.connect(self.soveti)
+        self.qbtn.clicked.connect(self.voprosi)
 
     def soveti(self):
-        self.soveti = Advice(self.ui[1], self.result.split(" "), self)
-        self.centralwidget = self.soveti
+        self.widget.takeCentralWidget()
+        if self.result:
+            self.result = self.voprosi.iresult
+        self.soveti = Advice(self.ui[2], self.result.split(". "), self)
+        self.widget.setCentralWidget(self.soveti)
 
     def voprosi(self):
-        self.voprosi = Qestions(self.ui[2], self.basa, self)
-        self.centralwidget = self.voprosi
+        self.widget.takeCentralWidget()
+        self.voprosi = Qestions(self.ui[1], self.basa, self)
+        self.widget.setCentralWidget(self.voprosi)
 
     def setSelf(self):
-        self.centralwidget = self.centralViget
-
-
-
+        self.widget.takeCentralWidget()
+        self.widget.setCentralWidget(self)
 
 
 
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
     #меню, вопросы, советы
-    ui = ["", "", ""]
+    ui = ["./untitled2.ui", "./untitled.ui", "./untitled1.ui"]
     prog = Menu(ui,"./database_test.xlsx")
     prog.show()
     sys.exit(app.exec())
