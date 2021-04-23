@@ -115,7 +115,7 @@ class Menu(QtWidgets.QWidget):
         self.centralwidget = self.soveti
 
     def voprosi(self):
-        self.voprosi = Advice(self.ui[2], self.basa, self)
+        self.voprosi = Qestions(self.ui[2], self.basa, self)
         self.centralwidget = self.voprosi
 
     def setSelf(self):
@@ -128,7 +128,8 @@ class Menu(QtWidgets.QWidget):
 
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
+    #меню, вопросы, советы
     ui = ["", "", ""]
-    prog = Menu("untitled.ui","./database_test.xlsx")
+    prog = Menu(ui,"./database_test.xlsx")
     prog.show()
     sys.exit(app.exec())
