@@ -108,7 +108,7 @@ class Menu(QtWidgets.QWidget):
         self.widget.setStyleSheet(style)
         self.widget.show()
         self.widget.setCentralWidget(self)
-        self.result = "вы ещё не прошли тест"
+        self.result = ""
 
         self.sbtn.clicked.connect(self.soveti)
         self.qbtn.clicked.connect(self.voprosi)

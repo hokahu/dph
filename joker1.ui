@@ -59,7 +59,7 @@
 	margin-left: 20px;
 }
 
-QPushButton#sovieti:pressed {
+QPushButton#sbtni:pressed {
 	background-color: #6cb6ea;
 }</string>
            </property>
@@ -102,7 +102,7 @@ QPushButton#sovieti:pressed {
 	height: 100px;
 }
 
-QPushButton#test:pressed {
+QPushButton#qbtn:pressed {
 	background-color: #6cb6ea;
 }
 </string>
