@@ -6,12 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>767</width>
-    <height>545</height>
+    <width>765</width>
+    <height>525</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(255, 255, 255);</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_2">
    <item>
@@ -111,7 +114,7 @@ QPushButton#pushButton:pressed {
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap>logo.png</pixmap>
+        <pixmap>834809984818610246.png</pixmap>
        </property>
        <property name="margin">
         <number>170</number>

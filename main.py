@@ -101,6 +101,11 @@ class Menu(QtWidgets.QWidget):
         uic.loadUi(self.ui[0], self)
         self.basa = basa
         self.widget = QtWidgets.QMainWindow()
+        style = """QMainWindow{
+        background-color: white;
+        }
+        """
+        self.widget.setStyleSheet(style)
         self.widget.show()
         self.widget.setCentralWidget(self)
         self.result = "вы ещё не прошли тест"
