@@ -2,7 +2,6 @@ import sys
 from PyQt5 import QtWidgets, uic
 from openpyxl import load_workbook
 
-
 class Qestions(QtWidgets.QWidget):
     def __init__(self, ui, basa, mViget):
         super(Qestions, self).__init__()
@@ -73,62 +72,11 @@ class Qestions(QtWidgets.QWidget):
         self.hide()
 
 
-class Advice(QtWidgets.QWidget):
-    def __init__(self, ui, adv, mViget):
-        super(Advice, self).__init__()
-        uic.loadUi(ui, self)
-        self.mViget = mViget
-        self.adv = adv
-        self.num = 0
-        self.nadv(0)
-        self.pr.clicked.connect(lambda: self.nadv(1))
-        self.pl.clicked.connect(lambda: self.nadv(-1))
-        self.menu.clicked.connect(self.adExit)
-
-
-    def nadv(self, step):
-        self.num = (self.num + step) % len(self.adv)
-        text = self.adv[self.num]
-        self.l1.setText(text)
-
-    def adExit(self):
-        self.mViget.setSelf()
-        self.hide()
-
-
-class Menu(QtWidgets.QWidget):
-    def __init__(self, ui, basa):
-        super(Menu, self).__init__()
-        self.ui = ui
-        uic.loadUi(self.ui[0], self)
-        self.basa = basa
-        self.widget = QtWidgets.QMainWindow()
-        self.centralwidget = self
-        self.widget.setCentralWidget(self.centralWidget)
-        self.result = "вы ещё не прошли тест"
-
-        self.sbtn.clicked.connect(lambda: self.soveti())
-        self.qbtn.clicked.connect(lambda: self.voprosi())
-
-    def soveti(self):
-        self.soveti = Advice(self.ui[1], self.result.split(" "), self)
-        self.centralwidget = self.soveti
-
-    def voprosi(self):
-        self.voprosi = Advice(self.ui[2], self.basa, self)
-        self.centralwidget = self.voprosi
-
-    def setSelf(self):
-        self.centralwidget = self.centralViget
-
-
-
 
 
 
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
-    ui = ["", "", ""]
-    prog = Menu("untitled.ui","./database_test.xlsx")
+    prog = Qestions("untitled.ui","./database_test.xlsx")
     prog.show()
     sys.exit(app.exec())

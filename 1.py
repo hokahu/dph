@@ -2,16 +2,16 @@ import sys
 from PyQt5 import QtWidgets, uic
 
 class Advice(QtWidgets.QWidget):
-    def __init__(self, ui):
+    def __init__(self, ui, adv, mViget):
         super(Advice, self).__init__()
         uic.loadUi(ui, self)
-        # сюда вставишь свои техники
-        self.adv = ["aaaaa", "bbbbbb"]
+        self.mViget = mViget
+        self.adv = adv
         self.num = 0
         self.nadv(0)
-        self.pr.clicked.connect(lambda:self.nadv(1))
+        self.pr.clicked.connect(lambda: self.nadv(1))
         self.pl.clicked.connect(lambda: self.nadv(-1))
-        self.menu.clicked.connect(self.hide)
+        self.menu.clicked.connect(self.adExit)
 
 
     def nadv(self, step):
@@ -19,8 +19,11 @@ class Advice(QtWidgets.QWidget):
         text = self.adv[self.num]
         self.l1.setText(text)
 
-    def speak(self, text):
-        pass
+    def adExit(self):
+        self.mViget.setSelf()
+        self.hide()
+
+
 
 
 
